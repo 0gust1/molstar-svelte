@@ -11,7 +11,7 @@ export default defineConfig({
 	// used to expose info from package.json to app code
 	// DO NOT expose secrets here
 	define: {
-		__NAME__: `"${pkg.name}"`,
+		__PKG_NAME__: `"${pkg.name}"`,
 		__VERSION__: `"${pkg.version}"`
 	}
 });

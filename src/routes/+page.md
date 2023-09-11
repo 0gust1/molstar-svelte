@@ -8,7 +8,7 @@ The components are designed to be used in a [Svelte](https://svelte.dev) applica
 ## Installation
 
 ```bash
-npm install svelte-molstar
+npm install molstar-svelte
 ```
 
 ## Usage
