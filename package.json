@@ -1,6 +1,18 @@
 {
 	"name": "molstar-svelte",
-	"version": "0.0.1",
+	"version": "0.0.2",
+	"description": "Mol* Svelte Components",
+	"keywords": [
+		"molstar",
+		"mol*",
+		"svelte",
+		"webgl",
+		"visualization",
+		"biology",
+		"chemistry",
+		"molecular",
+		"visualization"
+	],
 	"scripts": {
 		"dev": "vite dev",
 		"build": "vite build && npm run package",
