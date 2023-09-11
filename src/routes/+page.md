@@ -26,4 +26,4 @@ TODO
 > [Mol* Viewer: modern web app for 3D visualization and analysis of large biomolecular structures, Nucleic Acids Research, 2021; 10.1093/nar/gkab31](https://academic.oup.com/nar/article/49/W1/W431/6270780).  
 In memory of Jaroslav Koča. 
 
-Svelte-molstar is licensed under the [MIT License](LICENSE).
+Svelte-molstar is licensed under the [MIT License](https://opensource.org/license/mit/).

@@ -1,7 +1,6 @@
 <script lang="ts">
 	import '../app.css';
 	import { fade, slide } from 'svelte/transition';
-	import { bounceInOut } from 'svelte/easing';
 	import Menu from './Menu.svelte';
 	import AppHeader from './AppHeader.svelte';
 	let mobileSideBarOpen = false;
