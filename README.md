@@ -5,6 +5,10 @@ This is a collection of [Svelte](https://svelte.dev) components for [Mol\*](http
 The goal is to provide a set of composable components that can be used to build web applications/components/websites providing visualization and analysis of biomolecular structures.  
 The components are designed to be used in a [Svelte](https://svelte.dev) application, ~~but could be used in any framework that supports [Web Components](https://developer.mozilla.org/en-US/docs/Web/Web_Components)~~ (later).
 
+## Documentation / showcase
+
+[https://0gust1.github.io/molstar-svelte/](https://0gust1.github.io/molstar-svelte/)
+
 ## Developing
 
 Install the dependencies...
