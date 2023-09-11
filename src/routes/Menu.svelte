@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { base } from '$app/paths';
 </script>
 
 <!-- <div class="flex h-16 shrink-0 items-center">
@@ -12,17 +13,13 @@
 <nav class="mt-8">
 	<ul role="list">
 		<ul role="list" class="sublist">
-			<li><a href="/">Home</a></li>
-			<li><a href="library-design">Library Design / Contributing</a></li>
+			<li><a href="{base}/">Home</a></li>
+			<li><a href="{base}/library-design">Library Design / Contributing</a></li>
 		</ul>
 		<li>
 			Components:
 			<ul role="list" class="sublist">
-				<li><a href="">Simplest Molstar wrapper</a></li>
-				<li><a href="">aaa</a></li>
-				<li><a href="">vvv</a></li>
-				<li><a href="">ccc</a></li>
-				<li><a href="">vv</a></li>
+				<li><a href="{base}/components/simplest">Simplest Molstar wrapper</a></li>
 			</ul>
 		</li>
 	</ul>
