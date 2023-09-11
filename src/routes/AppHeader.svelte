@@ -1,11 +1,13 @@
 <div class="flex flex-1 gap-x-4 self-stretch lg:gap-x-6">
-	<h1 class="inline-flex items-center text-base" id="app-title">
+	<h1 class="inline-flex items-center text-base w-full" id="app-title">
 		<div class="molstar-logo w-[87px] h-8" />
 		<span class="mx-2">+</span>
 		<img src="svelte-logo.svg" alt="" class="h-8" />
 		<span class="mx-2">:</span>
-		<span class="font-mono text-3xl">{__PKG_NAME__}</span>
-		<span class="self-baseline text-gray-400">({__VERSION__})</span>
+		<!-- svelte-ignore missing-declaration -->
+		<span class="font-mono text-3xl text-gray-500">{__PKG_NAME__}</span>
+		<!-- svelte-ignore missing-declaration -->
+		<span class="self-end justify-self-end grow-0 ml-auto text-gray-400">(v{__VERSION__})</span>
 	</h1>
 	<!-- <form class="relative flex flex-1" action="#" method="GET">
 		<label for="search-field" class="sr-only">Search</label>

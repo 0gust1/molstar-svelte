@@ -5,8 +5,10 @@ declare global {
 		// interface Error {}
 		// interface Locals {}
 		// interface PageData {}
-		// interface Platform {}
+		// interface Platform {
 	}
+	declare const __VERSION__: string;
+	declare const __PKG_NAME__: string;
 }
 
 export {};
