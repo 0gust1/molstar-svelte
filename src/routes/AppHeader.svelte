@@ -1,8 +1,12 @@
+<script lang="ts">
+	import { base } from '$app/paths';
+</script>
+
 <div class="flex flex-1 gap-x-4 self-stretch lg:gap-x-6">
 	<h1 class="inline-flex items-center text-base w-full" id="app-title">
 		<div class="molstar-logo w-[87px] h-8" />
 		<span class="mx-2">+</span>
-		<img src="svelte-logo.svg" alt="" class="h-8" />
+		<img src="{base}/svelte-logo.svg" alt="Svelte logo" class="h-8" />
 		<span class="mx-2">:</span>
 		<!-- svelte-ignore missing-declaration -->
 		<span class="font-mono text-3xl text-gray-500">{__PKG_NAME__}</span>
