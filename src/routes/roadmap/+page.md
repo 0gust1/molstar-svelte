@@ -42,3 +42,9 @@ https://github.com/molstar/molstar/discussions/475
 
 Display/load a specific chain:  
 https://github.com/molstar/molstar/discussions/909
+
+Edit and save a structure:  
+https://github.com/molstar/molstar/issues/464
+
+Difference between `Model` and `Structure`:  
+https://github.com/molstar/molstar/issues/443#issuecomment-1164502033
