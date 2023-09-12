@@ -21,6 +21,8 @@ More sophisticated design (like component factories) could be considered later, 
 
 Official Molstar doc: https://molstar.org/docs/.
 
+Overall Molstar architecture: https://diglib.eg.org/bitstream/handle/10.2312/molva20181103/029-033.pdf?sequence=1&isAllowed=y
+
 ### Topics
 
 taking screenshots:
