@@ -134,7 +134,7 @@
 	}
 </script>
 
-<div class="molstar_wrapper">
+<div class="molstar-svelte_wrapper">
 	<div class={`plugin_container ${clazz || ''}`}>
 		<div
 			bind:this={molstarContainerEl}
@@ -142,7 +142,7 @@
 		>
 			<canvas bind:this={molstarCanvasEl} />
 			{#if BROWSER && initcomplete}
-				<slot name="content" />
+				<slot name="elements" />
 			{/if}
 		</div>
 	</div>
@@ -154,6 +154,5 @@
 <style>
 	.plugin_container {
 		position: relative;
-		width: 100%;
 	}
 </style>

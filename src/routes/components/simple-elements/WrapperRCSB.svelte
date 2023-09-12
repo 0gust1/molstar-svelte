@@ -1,4 +1,5 @@
 <script lang="ts">
+	// replace "$lib/" with "molstar-svelte/" in your project:
 	import StructureRCSB from '$lib/elements/StructureRCSB.svelte';
 	import MolstarWrapper from '$lib/wrappers/SimpleWrapper.svelte';
 	import PDBIdsList from './PDBIdsList.svelte';
@@ -6,13 +7,16 @@
 	let selectedPdbIds = [...pdbIds];
 </script>
 
-Selected: {selectedPdbIds.join(', ')}
+<p class="text-xs">
+	Selected: <span class="text-violet-500">{selectedPdbIds.join(', ')}</span>
+</p>
 <MolstarWrapper class="h-96">
-	<svelte:fragment slot="content">
+	<svelte:fragment slot="elements">
 		{#each selectedPdbIds as pdbId (pdbId)}
 			<StructureRCSB {pdbId} />
 		{/each}
 	</svelte:fragment>
 </MolstarWrapper>
-
-<PDBIdsList {pdbIds} bind:selectedPdbIds />
+{#if pdbIds.length > 1}
+	<PDBIdsList {pdbIds} bind:selectedPdbIds />
+{/if}

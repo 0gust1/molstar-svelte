@@ -2,17 +2,24 @@
 	import { base } from '$app/paths';
 </script>
 
-<div class="flex flex-1 gap-x-4 self-stretch lg:gap-x-6">
+<div class="flex flex-1 gap-x-4 self-stretch items-center lg:gap-x-6">
 	<h1 class="inline-flex items-center text-base w-full" id="app-title">
-		<div class="molstar-logo w-[87px] h-8" />
+		<div class="molstar-logo w-[87px] h-8 flex-none" />
 		<span class="mx-2">+</span>
 		<img src="{base}/svelte-logo.svg" alt="Svelte logo" class="h-8" />
 		<span class="mx-2">:</span>
 		<!-- svelte-ignore missing-declaration -->
-		<span class="font-mono text-3xl text-gray-500">{__PKG_NAME__}</span>
+		<span class="font-mono leading-5 text-lg md:text-3xl text-gray-500">{__PKG_NAME__}</span>
 		<!-- svelte-ignore missing-declaration -->
-		<span class="self-end justify-self-end ml-auto text-gray-400">(v{__PKG_VERSION__})</span>
 	</h1>
+	<a
+		href="https://github.com/0gust1/molstar-svelte"
+		class="flex flex-col items-center text-gray-400 hover:text-gray-600"
+	>
+		<img src="{base}/github-mark.svg" alt="Mol* logo" class="h-8" />
+		<span class="self-end justify-self-end ml-auto">(v{__PKG_VERSION__})</span>
+	</a>
+
 	<!-- <form class="relative flex flex-1" action="#" method="GET">
 		<label for="search-field" class="sr-only">Search</label>
 		<svg

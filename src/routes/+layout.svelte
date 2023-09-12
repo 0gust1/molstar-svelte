@@ -1,5 +1,6 @@
 <script lang="ts">
 	import '../app.css';
+	import '../code-highlight-styles.css';
 	import { fade, slide } from 'svelte/transition';
 	import Menu from './Menu.svelte';
 	import AppHeader from './AppHeader.svelte';

@@ -14,12 +14,13 @@
 	<ul role="list">
 		<ul role="list" class="sublist">
 			<li><a href="{base}/">Home</a></li>
-			<li><a href="{base}/library-design">Library Design / Contributing</a></li>
+			<li><a href="{base}/getting-started">Getting Started</a></li>
+			<li><a href="{base}/roadmap">Library Design / Roadmap</a></li>
 		</ul>
 		<li>
 			Components:
 			<ul role="list" class="sublist">
-				<li><a href="{base}/components/simplest">Simplest Molstar wrapper</a></li>
+				<li><a href="{base}/components/simple-elements">SimpleWrapper + elements</a></li>
 			</ul>
 		</li>
 	</ul>
