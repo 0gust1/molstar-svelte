@@ -35,7 +35,7 @@ export let structureType = 'mmcif';
  <svelte:fragment slot="controls">
   <!-- here you can inject/compose "html" components that will render outside of the Molstar's plugin canvas -->
   <!-- Useful for UI elements, buttons, etc. -->
-  <StructureURL url={url} type={structureType} />
+  <p>Currently displaying {url}</p>
  </svelte:fragment>
 </SimpleWrapper>
 ```
