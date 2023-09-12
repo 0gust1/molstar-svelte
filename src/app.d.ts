@@ -7,7 +7,7 @@ declare global {
 		// interface PageData {}
 		// interface Platform {
 	}
-	declare const __VERSION__: string;
+	declare const __PKG_VERSION__: string;
 	declare const __PKG_NAME__: string;
 }
 

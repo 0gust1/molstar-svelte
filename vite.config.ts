@@ -12,6 +12,6 @@ export default defineConfig({
 	// DO NOT expose secrets here
 	define: {
 		__PKG_NAME__: `"${pkg.name}"`,
-		__VERSION__: `"${pkg.version}"`
+		__PKG_VERSION__: `"${pkg.version}"`
 	}
 });

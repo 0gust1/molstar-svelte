@@ -11,7 +11,7 @@
 		<!-- svelte-ignore missing-declaration -->
 		<span class="font-mono text-3xl text-gray-500">{__PKG_NAME__}</span>
 		<!-- svelte-ignore missing-declaration -->
-		<span class="self-end justify-self-end ml-auto text-gray-400">(v{__VERSION__})</span>
+		<span class="self-end justify-self-end ml-auto text-gray-400">(v{__PKG_VERSION__})</span>
 	</h1>
 	<!-- <form class="relative flex flex-1" action="#" method="GET">
 		<label for="search-field" class="sr-only">Search</label>
