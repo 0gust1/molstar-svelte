@@ -125,7 +125,7 @@
 </div>
 
 <style lang="postcss">
-	.mobile-sidebar_backdrop {
+	/* .mobile-sidebar_backdrop {
 	}
 	.mobile-sidebar_backdrop--open {
 	}
@@ -136,7 +136,7 @@
 	.mobile-sidebar_content--open {
 	}
 	.mobile-sidebar_content--closed {
-	}
+	} */
 	.doc-content {
 		@apply px-4 sm:px-6 lg:px-8;
 	}
