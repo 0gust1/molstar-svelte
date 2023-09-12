@@ -10,8 +10,7 @@
 		"visualization",
 		"biology",
 		"chemistry",
-		"molecular",
-		"visualization"
+		"protein"
 	],
 	"scripts": {
 		"dev": "vite dev",
@@ -40,7 +39,8 @@
 	],
 	"license": "MIT",
 	"peerDependencies": {
-		"svelte": "^4.0.0"
+		"svelte": "^4.0.0",
+		"molstar": "^3.39.0"
 	},
 	"devDependencies": {
 		"@playwright/test": "^1.28.1",
