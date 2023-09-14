@@ -2,26 +2,33 @@
 
 This is a collection of [Svelte](https://svelte.dev) components for [Mol\*](https://molstar.org) visualizations.
 
-The goal is to provide a set of composable components that can be used to build web applications/components/websites providing visualization and analysis of biomolecular structures.  
+![build status badge](https://github.com/0gust1/molstar-svelte/actions/workflows/build.yml/badge.svg?event=push) ![deploy status badge](https://github.com/0gust1/molstar-svelte/actions/workflows/deploy.yml/badge.svg?event=push) ![publish status badge](https://github.com/0gust1/molstar-svelte/actions/workflows/publish.yml/badge.svg?event=release)
+
+
+## Goals 
+- **Provide a set of composable components** that can be used to build web applications, websites or components enabling visualization and analysis of biomolecular structures.
+- **Provide a set of examples** of how to use the components in a Svelte application.
+- **Keep the components as simple as possible**, and let the user decide how to use them:  The goal **is not** to provide a full set of components with extensive Molstar API coverage, but rather a set of building blocks (and examples/inspirations) that can be used to build a custom application.
+
 The components are designed to be used in a [Svelte](https://svelte.dev) application, ~~but could be used in any framework that supports [Web Components](https://developer.mozilla.org/en-US/docs/Web/Web_Components)~~ (later).
 
-![example event parameter](https://github.com/0gust1/molstar-svelte/actions/workflows/build.yml/badge.svg?event=push) ![example event parameter](https://github.com/0gust1/molstar-svelte/actions/workflows/deploy.yml/badge.svg?event=push) ![example event parameter](https://github.com/0gust1/molstar-svelte/actions/workflows/publish.yml/badge.svg?event=release)
+## Please Note
 
-## Documentation / showcase
+This package is still in early development, and the API is not stable. Until it reaches version 1.0.0, breaking changes may be introduced in any versions.
+
+__Pin your dependencies__ if you're bold enough to use it! (and drop me a message, I'd love to hear about it!).
+
+## Getting Started, Documentation, Showcase
 
 [https://0gust1.github.io/molstar-svelte/](https://0gust1.github.io/molstar-svelte/)
 
-## Developing
+## Development
 
 Install the dependencies...
 
 ```bash
 # we use npm ci to install the pinned dependencies from package-lock.json
 npm ci 
-```
-
-
-```bash
 npm run dev
 
 # or start the server and open the app in a new browser tab
@@ -38,7 +45,7 @@ To build the library:
 npm run package
 ```
 
-To create a production version of the documentation/showcase app:
+To build the library and create a production version of the documentation/showcase app:
 
 ```bash
 npm run build
@@ -46,13 +53,10 @@ npm run build
 
 You can preview the production build with `npm run preview`.
 
+## Updating the documentation/showcase
+
+Website/doc deployment is done through github actions, on push on `master` 
+
 ## Publishing
 
-Website/doc deploymen is done through github actions. 
-
-**TODO:**  
-package publishing is not yet automated.
-
-```bash
-npm publish
-```
+Publishing is done through github actions, on release creation on `master`.

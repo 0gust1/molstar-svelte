@@ -9,10 +9,14 @@ More sophisticated design (like component factories / programmaic components) co
 **NB:** Molstar-wise, we actually [use the PluginContext without the builtin React-UI](https://molstar.org/docs/plugin/#plugincontext-without-built-in-react-ui).
 
 ## Roadmap
+
+(wip, and order relevance is relative :) )
+
 - [x] ~~create a simple wrapper component~~
 - [ ] put it in action in this doc and other projects, refine the API and styling (wrapper) concerns (outside plugin)
 - [ ] create a set of controls components (button-bar, debug ui, etc.), refine styling concerns (outside plugin)
 - [ ] refine the API around representation and coloring (in plugin)
+- [ ] A drag and drop component to load a file (most common formats, including `ply`).
 - [ ] explore a dedicated synchronized grid component
 - [ ] explore a dedicated superposition component
 
@@ -42,3 +46,9 @@ https://github.com/molstar/molstar/discussions/475
 
 Display/load a specific chain:  
 https://github.com/molstar/molstar/discussions/909
+
+Edit and save a structure:  
+https://github.com/molstar/molstar/issues/464
+
+Difference between `Model` and `Structure`:  
+https://github.com/molstar/molstar/issues/443#issuecomment-1164502033
