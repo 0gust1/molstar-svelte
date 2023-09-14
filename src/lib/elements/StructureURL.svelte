@@ -1,4 +1,10 @@
 <script lang="ts">
+	/**
+	 * Load a structure from an URL
+	 * @param url URL to load the structure from
+	 * @param type Type of the structure
+	 */
+
 	import { getContext, onMount, onDestroy } from 'svelte';
 	import type { PluginContext } from 'molstar/lib/mol-plugin/context.js';
 	import { PluginCommands } from 'molstar/lib/mol-plugin/commands.js';
