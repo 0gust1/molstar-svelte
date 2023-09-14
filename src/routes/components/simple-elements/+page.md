@@ -1,19 +1,24 @@
 <script lang="ts">
 	import { browser} from '$app/environment';
-	import wrapperRCSBRaw from './WrapperRCSB.svelte?raw';
-	import wrapperURLRaw from './WrapperURL.svelte?raw';
+	import demoRCSBRaw from './DemoRCSB.svelte?raw';
+	import demoURLRaw from './DemoURL.svelte?raw';
 
-	const loadComponentWrapperWithPDB = async () =>
-		import('./WrapperRCSB.svelte').then((m) => {
+	const loadComponentDemoWithPDB = async () =>
+		import('./DemoRCSB.svelte').then((m) => {
 			return m.default;
 		});
 
-		const loadComponentWrapperWithURLs = async () =>
-		import('./WrapperURL.svelte').then((m) => {
+		const loadComponentDemoWithURLs = async () =>
+		import('./DemoURL.svelte').then((m) => {
 			return m.default;
 		});
 
-		const pdbId1 = '1xkk'
+		const loadComponentDemoWithURLChains = async () =>
+		import('./DemoURLChain.svelte').then((m) => {
+			return m.default;
+		});
+
+		const pdbId1 = '6a3v'
 		const url1 = {url: 'https://alphafold.ebi.ac.uk/files/AF-Q07011-F1-model_v4.cif', type: 'mmcif'}
 		const pdbList2 = ['7D4B', '5WJF', '5WIW', '6A3W']
 		const urlList2 = [
@@ -22,6 +27,14 @@
 		{ url: 'https://files.rcsb.org/view/7YUB.cif', type: 'mmcif' },
 		{ url: 'https://alphafold.ebi.ac.uk/files/AF-P00533-F1-model_v4.cif', type: 'mmcif' }
 	]
+
+	const urlChain1 = {url:'https://files.rcsb.org/view/6A3V.cif', type:'mmcif', chainId:'B'};
+	const urlChainList = [
+		{url:'https://files.rcsb.org/view/6A3V.cif', type:'mmcif', chainId:'B'},
+		{url:'https://files.rcsb.org/view/6A3W.cif', type:'mmcif', chainId:'C'},
+		{url:'https://files.rcsb.org/view/6BWV.cif', type:'mmcif', chainId:'C'},
+		{url:'https://files.rcsb.org/view/6CPR.cif', type:'mmcif', chainId:'F'},
+	];
 
 </script>
 
@@ -36,7 +49,7 @@
 ## Wrapper with `StructureRCSB.svelte`
 
 <pre class="text-sm">
-{wrapperRCSBRaw}
+{demoRCSBRaw}
 </pre>
 
 
@@ -44,7 +57,7 @@
 ### PdbID, with one instance
 
 {#if browser}
-	{#await loadComponentWrapperWithPDB() then MolstarComp}
+	{#await loadComponentDemoWithPDB() then MolstarComp}
 		<svelte:component this={MolstarComp} pdbIds={[pdbId1]} class="border h-18 w-1/2 bg-slate-300"/>
 	{/await}
 {/if}
@@ -52,7 +65,7 @@
 ### PdbID, with several instances (reactive)
 
 {#if browser}
-	{#await loadComponentWrapperWithPDB() then MolstarComp}
+	{#await loadComponentDemoWithPDB() then MolstarComp}
 		<svelte:component this={MolstarComp} pdbIds={pdbList2} class="border h-18 bg-slate-300"/>
 	{/await}
 {/if}
@@ -60,13 +73,13 @@
 ## Wrapper with `StructureURL.svelte`
 
 <pre class="text-sm">
-{wrapperURLRaw}
+{demoURLRaw}
 </pre>
 
 ### URL, with one instance
 
 {#if browser}
-	{#await loadComponentWrapperWithURLs() then MolstarComp}
+	{#await loadComponentDemoWithURLs() then MolstarComp}
 		<svelte:component this={MolstarComp} structuresURLs={[url1]} class="border h-18 bg-slate-300"/>
 	{/await}
 {/if}
@@ -74,7 +87,25 @@
 ### URL, with several instances (reactive)
 (todo: fix this, some problems with the reactive part/each keyed loop)
 {#if browser}
-	{#await loadComponentWrapperWithURLs() then MolstarComp}
+	{#await loadComponentDemoWithURLs() then MolstarComp}
 		<svelte:component this={MolstarComp} structuresURLs={urlList2} class="border h-18 bg-slate-300"/>
+	{/await}
+{/if}
+
+### URLChain one instance
+
+{#if browser}
+	{#await loadComponentDemoWithURLChains() then MolstarComp}
+		<svelte:component this={MolstarComp} structuresURLs={[urlChain1]} class="border h-18 bg-slate-300"/>
+	{/await}
+{/if}
+
+### URLChain several instances
+
+(Q07011 structures)
+
+{#if browser}
+	{#await loadComponentDemoWithURLChains() then MolstarComp}
+		<svelte:component this={MolstarComp} structuresURLs={urlChainList} class="border h-18 bg-slate-300"/>
 	{/await}
 {/if}

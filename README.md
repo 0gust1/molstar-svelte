@@ -11,17 +11,13 @@ The components are designed to be used in a [Svelte](https://svelte.dev) applica
 
 [https://0gust1.github.io/molstar-svelte/](https://0gust1.github.io/molstar-svelte/)
 
-## Developing
+## Development
 
 Install the dependencies...
 
 ```bash
 # we use npm ci to install the pinned dependencies from package-lock.json
 npm ci 
-```
-
-
-```bash
 npm run dev
 
 # or start the server and open the app in a new browser tab
@@ -46,13 +42,10 @@ npm run build
 
 You can preview the production build with `npm run preview`.
 
+## Updating the documentation/showcase
+
+Website/doc deployment is done through github actions, on push on `master` 
+
 ## Publishing
 
-Website/doc deploymen is done through github actions. 
-
-**TODO:**  
-package publishing is not yet automated.
-
-```bash
-npm publish
-```
+Publishing is done through github actions, on release creation on `master`.
