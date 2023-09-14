@@ -18,6 +18,11 @@
 			return m.default;
 		});
 
+		const loadComponentDemoSuperposition = async () =>
+		import('./DemoSuperposition.svelte').then((m) => {
+			return m.default;
+		});
+
 		const pdbId1 = '6a3v'
 		const url1 = {url: 'https://alphafold.ebi.ac.uk/files/AF-Q07011-F1-model_v4.cif', type: 'mmcif'}
 		const pdbList2 = ['7D4B', '5WJF', '5WIW', '6A3W']
@@ -32,7 +37,7 @@
 	const urlChainList = [
 		{url:'https://files.rcsb.org/view/6A3V.cif', type:'mmcif', chainId:'B'},
 		{url:'https://files.rcsb.org/view/6A3W.cif', type:'mmcif', chainId:'C'},
-		{url:'https://files.rcsb.org/view/6BWV.cif', type:'mmcif', chainId:'C'},
+		{url:'https://files.rcsb.org/view/6CU0.cif', type:'mmcif', chainId:'A'},
 		{url:'https://files.rcsb.org/view/6CPR.cif', type:'mmcif', chainId:'F'},
 	];
 
@@ -92,6 +97,8 @@
 	{/await}
 {/if}
 
+## URLChain
+
 ### URLChain one instance
 
 {#if browser}
@@ -106,6 +113,14 @@
 
 {#if browser}
 	{#await loadComponentDemoWithURLChains() then MolstarComp}
+		<svelte:component this={MolstarComp} structuresURLs={urlChainList} class="border h-18 bg-slate-300"/>
+	{/await}
+{/if}
+
+## Superposition
+
+{#if browser}
+	{#await loadComponentDemoSuperposition() then MolstarComp}
 		<svelte:component this={MolstarComp} structuresURLs={urlChainList} class="border h-18 bg-slate-300"/>
 	{/await}
 {/if}
