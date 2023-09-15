@@ -22,7 +22,7 @@
 	>
 </p>
 <MolstarWrapper class="h-96">
-	<svelte:fragment slot="elements">
+	<svelte:fragment slot="inside">
 		{#each selectedStructuresURLs as structureURL (`${structureURL.url}-${structureURL.type}-${structureURL.chainId}`)}
 			<StructureURLChain
 				url={structureURL.url}

@@ -1,21 +1,21 @@
 <script lang="ts">
+	import { BROWSER } from 'esm-env';
+	import type { Writable } from 'svelte/store';
+	import { onDestroy, onMount, setContext, createEventDispatcher } from 'svelte';
 	import { DefaultPluginSpec, PluginSpec } from 'molstar/lib/mol-plugin/spec.js';
 	import { PluginContext } from 'molstar/lib/mol-plugin/context.js';
 	import { PluginCommands } from 'molstar/lib/mol-plugin/commands.js';
-	import { PluginConfig } from 'molstar/lib/mol-plugin/config.js';
-	import { Color } from 'molstar/lib/mol-util/color';
-	import { onDestroy, onMount, setContext, createEventDispatcher } from 'svelte';
-	import type { Writable } from 'svelte/store';
-	import { BROWSER } from 'esm-env';
+	import { defaultPluginSpec, defaultCanvas3dSettings } from './simplewrapper-utils.js';
 
 	let clazz = '';
+	let randArray = new Uint8Array(1);
+
 	export { clazz as class };
 	export let didDrawStore: Writable<{ value: number; instanceId: string }> | null = null;
-
 	export let plugin: PluginContext | null = null; // used for binding
-	let randArray = new Uint8Array(1);
 	export let uid = crypto.getRandomValues(randArray)[0];
-	let renderer = null;
+	export let pluginSpecs: Partial<PluginSpec> = defaultPluginSpec;
+
 	let initcomplete = false;
 
 	let molstarContainerEl: HTMLDivElement;
@@ -27,31 +27,7 @@
 
 	const MySpec: PluginSpec = {
 		...DefaultPluginSpec(),
-		config: [[PluginConfig.VolumeStreaming.Enabled, false]],
-		canvas3d: {
-			postprocessing: {
-				occlusion: {
-					name: 'on',
-					params: {
-						samples: 32,
-						radius: 6,
-						bias: 1.4,
-						multiScale: { name: 'off', params: {} },
-						blurKernelSize: 15,
-						resolutionScale: 1
-					}
-				},
-				outline: { name: 'on', params: { scale: 1, threshold: 0.99, color: Color(0x000000) } }
-			},
-			renderer: {
-				ambientIntensity: 1.0,
-				light: [
-					//{ color: Color(0xffffff), azimuth: 1.0, inclination: 180, intensity: 1.0 }
-				],
-				backgroundColor: 0x001f42 as Color
-			}
-		}
-		//config:[[PluginConfig.Structure.DefaultRepresentationPreset, ViewerAutoPreset.id],]
+		...pluginSpecs
 	};
 
 	plugin = new PluginContext(MySpec);
@@ -68,38 +44,11 @@
 			return;
 		}
 
-		renderer = plugin.canvas3d!.props.renderer;
+		//renderer = plugin.canvas3d!.props.renderer;
 		if (didDrawStore) {
 			pluginDidDrawObservable = plugin?.behaviors.interaction.drag.asObservable(); //plugin?.canvas3d?.didDraw;
 		}
-		await PluginCommands.Canvas3D.SetSettings(plugin, {
-			settings: {
-				/* renderer: {
-					...renderer,
-					ambientIntensity: 1.0,
-					light: [],
-					backgroundColor: 0x001f42 as Color
-				}, */
-				cameraResetDurationMs: 100,
-				trackball: {
-					noScroll: true
-				},
-				postprocessing: {
-					occlusion: {
-						name: 'on',
-						params: {
-							multiScale: { name: 'off', params: {} },
-							samples: 32,
-							radius: 6,
-							bias: 1.4,
-							blurKernelSize: 15,
-							resolutionScale: 1
-						}
-					},
-					outline: { name: 'on', params: { scale: 1, threshold: 0.33, color: Color(0x000000) } }
-				}
-			}
-		});
+		await PluginCommands.Canvas3D.SetSettings(plugin, defaultCanvas3dSettings);
 
 		/* await PluginCommands.State.Update(plugin,{
 			options:{
@@ -114,15 +63,12 @@
 		if (!BROWSER) return;
 		await init();
 		initcomplete = true;
-
-		//console.log('plugin');
-		//console.dir(plugin);
 	});
 
 	onDestroy(async () => {
 		if (initcomplete) {
 			await plugin?.clear();
-			await plugin?.dispose();
+			plugin?.dispose();
 		}
 	});
 
@@ -142,12 +88,12 @@
 		>
 			<canvas bind:this={molstarCanvasEl} />
 			{#if BROWSER && initcomplete}
-				<slot name="elements" />
+				<slot name="inside" />
 			{/if}
 		</div>
 	</div>
 	{#if BROWSER && initcomplete}
-		<slot name="controls" />
+		<slot name="outside" />
 	{/if}
 </div>
 

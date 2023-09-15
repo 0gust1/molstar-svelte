@@ -17,6 +17,7 @@
 		class="flex flex-col items-center text-gray-400 hover:text-gray-600"
 	>
 		<img src="{base}/github-mark.svg" alt="Mol* logo" class="h-8" />
+		<!-- svelte-ignore missing-declaration -->
 		<span class="self-end justify-self-end ml-auto">(v{__PKG_VERSION__})</span>
 	</a>
 

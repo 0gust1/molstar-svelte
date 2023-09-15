@@ -11,7 +11,7 @@
 	Selected: <span class="text-violet-500">{selectedPdbIds.join(', ')}</span>
 </p>
 <MolstarWrapper class="h-96">
-	<svelte:fragment slot="elements">
+	<svelte:fragment slot="inside">
 		{#each selectedPdbIds as pdbId (pdbId)}
 			<StructureRCSB {pdbId} />
 		{/each}
