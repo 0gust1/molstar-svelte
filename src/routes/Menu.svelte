@@ -21,6 +21,7 @@
 			Components:
 			<ul role="list" class="sublist">
 				<li><a href="{base}/components/simple-elements">SimpleWrapper + elements</a></li>
+				<li><a href="{base}/components/simple-controls">SimpleWrapper + controls</a></li>
 			</ul>
 		</li>
 	</ul>
