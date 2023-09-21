@@ -11,6 +11,7 @@
 	let randArray = new Uint8Array(1);
 
 	export { clazz as class };
+	export let pluginCssClasses = '';
 	export let didDrawStore: Writable<{ value: number; instanceId: string }> | null = null;
 	export let plugin: PluginContext | null = null; // used for binding
 	export let uid = crypto.getRandomValues(randArray)[0];
@@ -35,9 +36,12 @@
 	setContext('molstar', { getPlugin: () => plugin });
 
 	async function init() {
-		if (!BROWSER) return;
-		if (!plugin) return;
 		await plugin.init();
+
+		if (!window?.molstarInstances) {
+			window.molstarInstances = new Map();
+		}
+		window.molstarInstances.set(uid, plugin);
 
 		if (!plugin.initViewer(molstarCanvasEl, molstarContainerEl)) {
 			console.error('Failed to init Mol*');
@@ -60,7 +64,7 @@
 	}
 
 	onMount(async () => {
-		if (!BROWSER) return;
+		if (!BROWSER || !plugin) return;
 		await init();
 		initcomplete = true;
 	});
@@ -69,6 +73,7 @@
 		if (initcomplete) {
 			await plugin?.clear();
 			plugin?.dispose();
+			window.molstarInstances.delete(uid);
 		}
 	});
 
@@ -80,8 +85,8 @@
 	}
 </script>
 
-<div class="molstar-svelte_wrapper">
-	<div class={`plugin_container ${clazz || ''}`}>
+<div class="molstar-svelte_wrapper {clazz || ''}">
+	<div class="plugin_container {pluginCssClasses || ''}">
 		<div
 			bind:this={molstarContainerEl}
 			style="position: absolute; top: 0; left: 0; right: 0; bottom: 0"

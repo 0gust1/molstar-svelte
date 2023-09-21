@@ -34,7 +34,7 @@ export let structureType = 'mmcif';
 
 #### Slots
 
-You'll get 2 slots: `elements` and `controls`. 
+You'll get 2 slots: `inside` and `outside`. 
 
 Each component you'll inject in these two slots:
 - will be rendered in a different container (depending on the slot).
@@ -42,11 +42,9 @@ Each component you'll inject in these two slots:
 
 The `inside` slot is injected in the same container as the Molstar's plugin canvas, while the `outside` slot is injected outside of it (but still in the container of `SimpleWrapper`).
 
-Typically, if you want to position a UI element on top of the canvas, you'll want to use the `elements` slot, while if you want to position a UI element outside of the canvas, you'll want to use the `controls` slot.
+Typically, if you want to position a UI element on top of the canvas, you'll want to use the `inside` slot, while if you want to position a UI element outside of the canvas, you'll want to use the `outside` slot.
 
 In the example above, we're using `<svelte:fragment>` to inject our components without an extra container/wrapping element, but you can use any element you want.
-
-
 
 ### Loading the component in a page
 
