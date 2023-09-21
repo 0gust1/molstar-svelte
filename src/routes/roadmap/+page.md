@@ -17,7 +17,7 @@ More sophisticated design (like component factories / programmaic components) co
 - [ ] create a set of controls components (button-bar, debug ui, etc.), refine styling concerns (outside plugin)
 - [ ] refine the API around representation and coloring (in plugin)
 - [ ] A drag and drop component to load a file (most common formats, including `ply`).
-- [ ] explore a dedicated synchronized grid component
+- [ ] explore a dedicated synchronized grid component, with zoomable/focusable thumbnails
 - [ ] explore a dedicated superposition component
 
 ## References / resources
