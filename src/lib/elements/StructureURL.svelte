@@ -33,7 +33,7 @@
 		const model = await plugin.builders.structure.createModel(trajectory);
 		const struct = await plugin.builders.structure.createStructure(model);
 		structure = struct;
-		await plugin.builders.structure.hierarchy.applyPreset(structure, 'default');
+		await plugin.builders.structure.hierarchy.applyPreset(trajectory, 'default');
 	};
 	onMount(() => {
 		init();
