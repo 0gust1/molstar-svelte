@@ -10,7 +10,7 @@
 	let selectedStructuresURLs = [...structuresURLs];
 </script>
 
-<MolstarWrapper class="h-96">
+<MolstarWrapper class="" pluginCssClasses="h-96 w-full">
 	<svelte:fragment slot="inside">
 		{#each selectedStructuresURLs as structureURL (`${structureURL.url}-${structureURL.type}`)}
 			<StructureURL url={structureURL.url} type={structureURL.type} />

@@ -34,7 +34,7 @@ export let structureType = 'mmcif';
 
 #### Slots
 
-You'll get 2 slots: `elements` and `controls`. 
+You'll get 2 slots: `inside` and `outside`. 
 
 Each component you'll inject in these two slots:
 - will be rendered in a different container (depending on the slot).

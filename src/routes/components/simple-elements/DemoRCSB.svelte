@@ -10,7 +10,7 @@
 <p class="text-xs">
 	Selected: <span class="text-violet-500">{selectedPdbIds.join(', ')}</span>
 </p>
-<MolstarWrapper class="h-96">
+<MolstarWrapper class="h-96" pluginCssClasses="h-96 w-full">
 	<svelte:fragment slot="inside">
 		{#each selectedPdbIds as pdbId (pdbId)}
 			<StructureRCSB {pdbId} />

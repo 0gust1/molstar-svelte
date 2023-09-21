@@ -29,9 +29,11 @@
 		| undefined;
 
 	const plugin = getContext<{ getPlugin: () => PluginContext }>('molstar').getPlugin();
+
 	let structure: Awaited<ReturnType<typeof plugin.builders.structure.createStructure>>;
 
-	//plugin.representation.structure.themes.colorThemeRegistry.add();
+	// FIXME: move this at molstar wrapper level.
+	// when unmounting + mounting again, molstar understably complains about the preset already being registred.
 	plugin.builders.structure.representation.registerPreset(QualityAssessmentPLDDTPreset);
 
 	const init = async () => {
@@ -49,7 +51,8 @@
 
 		await plugin.builders.structure.hierarchy.applyPreset(
 			trajectory,
-			'preset-structure-representation-ma-quality-assessment-plddt'
+			'preset-structure-representation-ma-quality-assessment-plddt',
+			params
 		);
 		//await plugin.builders.structure.hierarchy.applyPreset(model, 'default', params);
 
