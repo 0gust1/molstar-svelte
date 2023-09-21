@@ -58,7 +58,9 @@
 
 {#if browser}
 	{#await loadComponentDemoWithPDB() then MolstarComp}
+	<div class="not-prose">
 		<svelte:component this={MolstarComp} pdbIds={[pdbId1]} class="border h-18 w-1/2 bg-slate-300"/>
+	</div>
 	{/await}
 {/if}
 
@@ -66,7 +68,9 @@
 
 {#if browser}
 	{#await loadComponentDemoWithPDB() then MolstarComp}
+	<div class="not-prose">
 		<svelte:component this={MolstarComp} pdbIds={pdbList2} class="border h-18 bg-slate-300"/>
+	</div>
 	{/await}
 {/if}
 
@@ -79,24 +83,32 @@
 ### URL, with one instance
 
 {#if browser}
-	{#await loadComponentDemoWithURLs() then MolstarComp}
-		<svelte:component this={MolstarComp} structuresURLs={[url1]} class="border h-18 bg-slate-300"/>
-	{/await}
+{#await loadComponentDemoWithURLs() then MolstarComp}
+<div class="not-prose">
+<svelte:component this={MolstarComp} structuresURLs={[url1]} class="border h-18 bg-slate-300"/>
+</div>
+{/await}
 {/if}
 
 ### URL, with several instances (reactive)
+
 (todo: fix this, some problems with the reactive part/each keyed loop)
+
 {#if browser}
-	{#await loadComponentDemoWithURLs() then MolstarComp}
-		<svelte:component this={MolstarComp} structuresURLs={urlList2} class="border h-18 bg-slate-300"/>
-	{/await}
+{#await loadComponentDemoWithURLs() then MolstarComp}
+<div class="not-prose">
+<svelte:component this={MolstarComp} structuresURLs={urlList2} class="border h-18 bg-slate-300"/>
+</div>
+{/await}
 {/if}
 
 ### URLChain one instance
 
 {#if browser}
 	{#await loadComponentDemoWithURLChains() then MolstarComp}
+	<div class="not-prose">
 		<svelte:component this={MolstarComp} structuresURLs={[urlChain1]} class="border h-18 bg-slate-300"/>
+	</div>
 	{/await}
 {/if}
 
@@ -106,6 +118,8 @@
 
 {#if browser}
 	{#await loadComponentDemoWithURLChains() then MolstarComp}
+	<div class="not-prose">
 		<svelte:component this={MolstarComp} structuresURLs={urlChainList} class="border h-18 bg-slate-300"/>
+	</div>
 	{/await}
 {/if}
