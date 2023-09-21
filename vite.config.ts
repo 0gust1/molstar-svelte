@@ -7,6 +7,11 @@ export default defineConfig({
 	test: {
 		include: ['src/**/*.{test,spec}.{js,ts}']
 	},
+	server: {
+		fs: {
+			allow: ['..']
+		}
+	},
 	// https://vitejs.dev/config/shared-options.html#define
 	// used to expose info from package.json to app code
 	// DO NOT expose secrets here
